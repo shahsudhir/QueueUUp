@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand indigo (your original #3028d9 is brand-600) */
+  --color-brand-50: #f1f0ff;
+  --color-brand-100: #e3e1ff;
+  --color-brand-200: #c9c5ff;
+  --color-brand-300: #a59dfd;
+  --color-brand-400: #7d72f6;
+  --color-brand-500: #5a4ded;
+  --color-brand-600: #3028d9;
+  --color-brand-700: #2720b4;
+  --color-brand-800: #211c8f;
+  --color-brand-900: #1c1971;
+
+  /* Ink text + paper background */
+  --color-ink: #17153b;
+  --color-paper: #f6f5fb;
+
+  /* Barber-pole red, used only on the ticket and destructive actions */
+  --color-pole: #d8413a;
+
+  --shadow-card: 0 1px 2px rgb(23 21 59 / 0.04), 0 10px 28px -12px rgb(23 21 59 / 0.14);
+
+  --animate-rise: rise 0.35s ease-out both;
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
